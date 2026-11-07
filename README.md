@@ -177,12 +177,17 @@ and why you think these lengths are the most common: It looks to be around 1 to 
 
 ### 17: Claude's review of your protocol and scripts
 
-*Answer*: At least three of Claude's suggestions,
-and whether you agree or disagree with each one, and why:
+*Answer*: At least three of Claude's suggestions, and whether you agree or disagree with each one, and why:
+
+1. Claude said there is a placeholder for the GitHub URL in protocol.md. I know that this is missing the URL and we are not adding that to the protocol until part F.
+
+2. Claude says Step 3 quantification with Salmon in protocol.md was hardcoded to run as a single sample (S63). The way I wrote it that is true. I was unsure if the instructions said we were supposed to make a loop and I did try to write a loop but couldn't figure out how to pull the right files with a glob. 
+
+3. Claude said there is no version pinning for TrimGalore, Salmon or MultiQC in the scripts. I think this is incorrect as all the scripts have the apptainer  that pins to a specific versio (e.g. salmon:2.8.0). Maybe Claude did not adequately review the scripts. 
 
 ### 18: Address a suggestion
 
-*Answer*: Which suggestion(s) you addressed, and what you changed:
+*Answer*: Which suggestion(s) you addressed, and what you changed: I changed the protocol.md Step 3 quantification with Salmon to write `S<#>` instead of a specific number to indicate that that sample number changes depending on the desired sample.
 
 ------------------------------------------------------------------------
 
