@@ -1,18 +1,3 @@
-<!--
-GA5 README template.
-- Add your answers to each question's section below.
-- For each question where we want you to add your commands,
-  put the command(s) you ran in the terminal in the corresponding ```bash code block.
-- Where we want to see a command's output, there is a plain ``` code block
-  right below the command block: paste the output there.
-- The code to run each step of the workflow goes in `protocol.md`, not here:
-  you don't need to repeat it in this file.
-- You don't need to paste the contents of your scripts into this file:
-  we will look at the scripts in your `scripts` dir directly
-  (so make sure you commit them!).
-- Delete instructional comments like this one as you go.
--->
-
 # GA5 answers - Lillian Ehresmann
 
 ------------------------------------------------------------------------
@@ -34,20 +19,20 @@ mkdir -p scripts data/ref results
 
 ### 5: Download the reference transcriptome
 
-<!-- Put the download command in `protocol.md`, not here. -->
-
 Code to count the number of transcripts:
 
 ```bash
-# Your command:
+# Your command: 
+zcat data/ref/GCF_016801865.2_TS_CPP_V2_rna.fna.gz | grep -c ">"
 ```
 
 The output of the command was:
 
 ```
+28624
 ```
 
-*Answer*: The number of transcripts in the file:
+*Answer*: The number of transcripts in the file: 28,624
 
 ------------------------------------------------------------------------
 
