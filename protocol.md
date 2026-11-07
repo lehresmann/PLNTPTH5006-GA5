@@ -5,7 +5,7 @@
 - Date last modified: 11/7/26
 - This was run at the Pitzer cluster of the Ohio Supercomputer Center (<https://www.osc.edu>)
 - OSC working dir: /fs/ess/PAS3493/people/lehresmann/GA5
-- GitHub repository: <???>
+- GitHub repository: https://github.com/lehresmann/PLNTPTH5006-GA5
 
 ## Prerequisites
 
