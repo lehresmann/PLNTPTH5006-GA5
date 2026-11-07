@@ -66,4 +66,6 @@ sbatch scripts/salmon_quant.sh results/trimgalore/S63_R1.fastq.gz results/trimga
 
 ## Step 4: Summarizing the results of all steps with MultiQC
 
-<???>
+```bash
+sbatch scripts/multiqc.sh results/ results/multiqc
+```

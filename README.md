@@ -154,26 +154,22 @@ results/salmonquant/S86/logs/salmon_quant.log:mapping rate: 83.0532%
 
 ### 12: Update your MultiQC script
 
-<!-- No need to paste the script: we'll look at scripts/multiqc.sh and its Git history directly. -->
-
 ### 13: Run MultiQC
 
-*Answer*: For each program, the number of reports that MultiQC found,
-and why it found this number:
+*Answer*: For each program, the number of reports that MultiQC found, and why it found this number: For Salmon, it found 22 reports because it used both reads (R1 and R2) to produce a single output. For trimgalore, it found 44 reports because it processes/trims both reads individually resulting in double the outputs as there are samples. 
 
 ### 14: The General Statistics table
 
-*Answer*: The sample with the lowest Salmon mapping rate,
-and whether this matches your answer to question 11:
+*Answer*: The sample with the lowest Salmon mapping rate, and whether this matches your answer to question 11: The General Statistics table indicates that S83 has the lowest Salmon mapping rate, which is the same as I determined in question 11 using the salmon_quant.log.
 
 ### 15: Adapter lengths
 
 *Answer*: The most common adapter lengths, whether this surprised you,
-and why you think these lengths are the most common:
+and why you think these lengths are the most common: It looks to be around 1 to 4 bp lengths which makes sense because we saw most adapter-trimmed bases were 1 to 3 bp long in GA4. 
 
 ### 16: Ask Claude about the MultiQC report
 
-*Answer*: What you asked, and what you learned from Claude's answer (in your own words):
+*Answer*: What you asked, and what you learned from Claude's answer (in your own words): I asked it to explain what the Salmon fragment distribution plot means. Basically, for each of the 22 samples, there is a curve that indicates the normalized proportion of reads that are a certain length. In our case, most reads are between 150-200 bp which is apparently normal for RNA seq data. Moreover, each sample's curve appears to overall be a single peak which is consistent with better quality RNA (e.g. not degraded) and appropriate pre-processing (e.g. adapter trimming). Additionally, because the curves are normalized, we can compare samples and investigate variability in the curves potentially indicating issues with library prep step (when fragmentation occurs). 
 
 ------------------------------------------------------------------------
 
