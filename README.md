@@ -53,59 +53,100 @@ Code to check the size of the index dir:
 
 ```bash
 # Your command:
+du -sh results/salmonindex
 ```
 
 The output of the command was:
 
 ```
+1.1G    results/salmonindex/
 ```
 
-*Answer*: How long it took to create the index, and how you found out:
+*Answer*: How long it took to create the index, and how you found out: It took 21 seconds (Sat Nov  7 12:49:30 PM EST 2026 to Sat Nov  7 12:49:51 PM EST 2026; this was from the slurm log).
 
-*Answer*: The size of the index dir:
+*Answer*: The size of the index dir: 1.1 gigabytes
 
 ### 8: Run Salmon for all samples
 
-<!-- No answer needed here -- we check `protocol.md` directly. -->
+*I managed to get the Salmon output for all samples but I am not sure if I did it right as I did not code a loop (not sure if the directions were to write a loop or run each individually). I noticed that if I tried a loop and used a glob `*_R1.fastq.gz`, it wouldn't work because there was other files that had that in the name even if the name was longer, like _trimming_report.json*
 
 ### 9: The transcripts with the most reads
 
-*Answer*: What the `NumReads` column contains:
+*Answer*: What the `NumReads` column contains: the estimated number of reads that are mapped to a transcript. 
 
 ```bash
 # Your command:
+cut -f 5 results/salmonquant/S63/quant.sf | sort -n | tail -n 4
 ```
 
 The output of the command was:
 
 ```
+4232.000
+4774.749
+8663.254
+24004.889
 ```
 
 ### 10: The gene of the top transcript
 
 ```bash
 # Your command:
+
+# Find the transcript identifier in quant.sf for sample 63:
+grep "24004.889" results/salmonquant/S63/quant.sf
+
+# Find the FASTA header in the reference transcriptome file: 
+zcat data/ref/GCF_016801865.2_TS_CPP_V2_rna.fna.gz | grep "XM_039591534.2"
 ```
 
-The output of the command was:
+The output of the commands was:
 
 ```
+XM_039591534.2  6566    6315.086        14518.656821    24004.889
+``` 
+
+```
+>XM_039591534.2 PREDICTED: Culex pipiens pallens vitellogenin-A1-like (LOC120426760), mRNA
 ```
 
-*Answer*: The gene that the top transcript belongs to:
+*Answer*: The gene that the top transcript belongs to: vitellogenin-A1-like
 
 ### 11: Mapping rates
 
 ```bash
 # Your command:
+grep "mapping rate" results/salmonquant/*/logs/salmon_quant.log
 ```
 
 The output of the command was:
 
 ```
+results/salmonquant/S63/logs/salmon_quant.log:mapping rate: 82.4560%
+results/salmonquant/S64/logs/salmon_quant.log:mapping rate: 81.9152%
+results/salmonquant/S65/logs/salmon_quant.log:mapping rate: 79.1055%
+results/salmonquant/S66/logs/salmon_quant.log:mapping rate: 81.9350%
+results/salmonquant/S67/logs/salmon_quant.log:mapping rate: 83.0459%
+results/salmonquant/S68/logs/salmon_quant.log:mapping rate: 78.8070%
+results/salmonquant/S69/logs/salmon_quant.log:mapping rate: 82.1824%
+results/salmonquant/S70/logs/salmon_quant.log:mapping rate: 82.3060%
+results/salmonquant/S71/logs/salmon_quant.log:mapping rate: 79.9047%
+results/salmonquant/S74/logs/salmon_quant.log:mapping rate: 78.2753%
+results/salmonquant/S75/logs/salmon_quant.log:mapping rate: 80.3915%
+results/salmonquant/S76/logs/salmon_quant.log:mapping rate: 82.3396%
+results/salmonquant/S77/logs/salmon_quant.log:mapping rate: 82.3281%
+results/salmonquant/S78/logs/salmon_quant.log:mapping rate: 84.2490%
+results/salmonquant/S79/logs/salmon_quant.log:mapping rate: 80.4061%
+results/salmonquant/S80/logs/salmon_quant.log:mapping rate: 82.1721%
+results/salmonquant/S81/logs/salmon_quant.log:mapping rate: 83.6795%
+results/salmonquant/S82/logs/salmon_quant.log:mapping rate: 78.7291%
+results/salmonquant/S83/logs/salmon_quant.log:mapping rate: 76.1504%
+results/salmonquant/S84/logs/salmon_quant.log:mapping rate: 83.2207%
+results/salmonquant/S85/logs/salmon_quant.log:mapping rate: 76.9540%
+results/salmonquant/S86/logs/salmon_quant.log:mapping rate: 83.0532%
 ```
 
-*Answer*: The sample with the lowest mapping rate:
+*Answer*: The sample with the lowest mapping rate: S83 (76.1504%)
 
 ------------------------------------------------------------------------
 

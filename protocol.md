@@ -51,11 +51,18 @@ for fastq_r1 in "$fastq_dir"/*_R1.fastq.gz; do fastq_r2=${fastq_r1/_R1/_R2}; sba
 
 ## Step 2: Creating a transcriptome index with Salmon
 
-<???>
+```bash
+sbatch scripts/salmon_index.sh data/ref/GCF_016801865.2_TS_CPP_V2_rna.fna.gz results/salmonindex
+```
 
 ## Step 3: Pseudo-alignment and quantification with Salmon
 
-<???>
+```bash
+# Inputs:
+salmon_dir=/fs/ess/PAS3493/people/lehresmann/GA5/results/salmonindex
+
+sbatch scripts/salmon_quant.sh results/trimgalore/S63_R1.fastq.gz results/trimgalore/S63_R2.fastq.gz "$salmon_dir" results/salmonquant
+```
 
 ## Step 4: Summarizing the results of all steps with MultiQC
 
