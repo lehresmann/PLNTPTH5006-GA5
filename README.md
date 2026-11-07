@@ -40,10 +40,8 @@ The output of the command was:
 
 ### 6: Run TrimGalore
 
-<!-- Put the code to run TrimGalore in `protocol.md`, not here. -->
-
 *Answer*: Whether all batch jobs succeeded, and how you checked that
-(and any problems you encountered, and how you solved them):
+(and any problems you encountered, and how you solved them): The first issue I had was that I forgot how to run multiple bash blocks sequentially so I asked Claude for help (use semicolons to separate commands). Then, it ran. I did not recieve an email that a job failed. I further checked for the "Successfully finished" message using `grep -c`. There were 22 "Successfully finished" messages which matches the number of Garrigos samples. 
 
 ------------------------------------------------------------------------
 
